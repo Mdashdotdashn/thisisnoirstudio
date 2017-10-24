@@ -794,9 +794,8 @@ background-color: #222222;
 
 .intro-personal {
 	position: relative;
-	top:50%;
 	height:5%;
-	margin-top: -10%;
+	margin-top: 25%;
 	text-align: left;
 	padding-left: 5%;
 }
@@ -1736,6 +1735,20 @@ label {
    .split-home .right-section,  .split-home .left-section{
       -webkit-overflow-scrolling: touch;
   }
+
+  .left-section {
+    visibility: hidden;
+  }
+
+  .right-section {
+  position: absolute;
+  margin-top: 50px; 
+  }
+
+  .intro-personal{
+    margin-top:0;
+  }
+  
 }
 
 	@media only screen and (min-width : 320px) and (max-width : 768px) and (orientation: landscape) {
@@ -1753,11 +1766,17 @@ label {
 
 	@media only screen and (min-device-width : 320px) and (max-width : 568px) and (orientation : landscape) {
      .left-section {
-       min-height: 100vh;
+       visibility: hidden;
     }
   }
 
 	@media only screen and (max-width: 420px) {
+
+
+  .left-section {
+    visibility: hidden;
+  }
+
 
 		.intro-personal {
 			padding-top: 100px;

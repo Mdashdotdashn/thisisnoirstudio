@@ -1,21 +1,25 @@
-// Based on Casey Reas work 
+// Based on Casey Reas work
 // Process Compendium 2004-2010
 
 var ctx = Sketch.create({
-	container: document.getElementById( 'PC' ),  
+	container: document.getElementById( 'PC' ),
     });
 
 
+ctx.active = function()
+{
+	return (this.frameCount< 2000);
+}
+
 ctx.setup = function()
 {
-
   this.process = new Process3();
 
   this.array = new Array ();
 
-  for (var i=0; i<ctx.height/50; i++) 
+  for (var i=0; i<ctx.height/50; i++)
   {
-    this.array.push(new Element (new Circle()));  
+    this.array.push(new Element (new Circle()));
   }
 
   this.frameCount = 0;
@@ -24,9 +28,9 @@ ctx.setup = function()
 ctx.update = function()
 {
  this.frameCount++;
- if (this.frameCount< 2000)
+ if (this.active())
  {
-	 for (var i=0; i<this.array.length; i++) 
+	 for (var i=0; i<this.array.length; i++)
 	 {
 	 	this.array[i].updateElement();
 	 	for (var j=0; j<this.array.length; j++)
@@ -36,27 +40,35 @@ ctx.update = function()
 		 	 this.array[i].updateElement2(this.array[j]);
 		 	}
 	 	}
-	 } 	
+	 }
  }
 }
 
 ctx.draw = function()
 {
-  this.process.DrawProcess(this.array);
+	if (this.active())
+	{
+  	this.process.DrawProcess(this.array);
+	}
 }
 
 ctx.clear = function(){
-  this.process.ClearProcess();  
+	if (this.active())
+	{
+		this.process.ClearProcess();
+	}
 };
 
-
+ctx.resize = function() {
+	this.frameCount = 0;
+};
 
 
 function Process1() // Draw elements
 {
 	this.DrawProcess = function(array)
 	{
-		 for (i=0; i<array.length; i++) 
+		 for (i=0; i<array.length; i++)
 		 {
 		 	array[i].drawElement();
 		 }
@@ -66,7 +78,7 @@ function Process1() // Draw elements
 	{
 		ctx.fillStyle = 'black';
 		ctx.fillRect( 0, 0, ctx.width, ctx.height );
-		ctx.fill();		
+		ctx.fill();
 	}
 }
 
@@ -75,7 +87,7 @@ function Process2()  // Draw elements with transparency trails
 {
 	this.DrawProcess = function(array)
 	{
-		 for (i=0; i<array.length; i++) 
+		 for (i=0; i<array.length; i++)
 		 {
 		 	array[i].form.color ='rgba(255,255,255,0.05)';
 		 	array[i].drawElement();
@@ -91,9 +103,9 @@ function Process3()  // Draw transparent lines between center of colliding objec
 {
 	this.DrawProcess = function(array)
 	{
-		 for (i=0; i<array.length; i++) 
+		 for (i=0; i<array.length; i++)
 		 {
-			 for (j=i+1; j<array.length; j++) 
+			 for (j=i+1; j<array.length; j++)
 			 {
 		 		if(array[i].form.collision(array[j].form))
 				{
@@ -130,7 +142,7 @@ function Circle()
 		ctx.LineWidth = 5 ;
 		ctx.strokeStyle = this.color;
         ctx.stroke();
-	}	
+	}
 
 	this.collision = function(autre)
 	{
@@ -170,7 +182,7 @@ function Line()
 		var dy = this.size*sin(this.a);
 		ctx.moveTo(this.x-dx, this.y-dy);
 		ctx.lineTo(this.x+dx, this.y+dy);
-        ctx.stroke();		
+        ctx.stroke();
 	}
 
 	this.collision = function(autre)
@@ -186,7 +198,7 @@ function Line()
 
 		var a2 = {
 		  x: this.x + dx1,
-		  y: this.y + dy1	
+		  y: this.y + dy1
 		};
 
 		var dx2 = autre.size*cos(autre.a);
@@ -212,7 +224,7 @@ function Line()
 
 	        if ( 0 <= ua && ua <= 1 && 0 <= ub && ub <= 1 ) {
 	        	return true;
-	        } 
+	        }
 	    }
 
 	    return false;
@@ -225,14 +237,14 @@ function Behavior1() // Straight line
 {
 	this.Apply = function(form)
 	{
-		form.x = form.x + form.m*cos(form.a); 
+		form.x = form.x + form.m*cos(form.a);
 		form.y = form.y + form.m*sin(form.a);
 	}
 
 	this.Apply2 = function(form1, form2)
 	{
-		
-	}	
+
+	}
 }
 
 function Behavior2() // Side warping
@@ -260,8 +272,8 @@ function Behavior2() // Side warping
 
 	this.Apply2 = function(form1, form2)
 	{
-		
-	}	
+
+	}
 }
 
 function Behavior3() // Rotate on collision
@@ -275,7 +287,7 @@ function Behavior3() // Rotate on collision
 		if(form1.collision(form2))
 		{
 			form1.a += 0.01;
-		} 
+		}
 	}
 }
 
@@ -306,13 +318,13 @@ function Behavior4() // Spread on collision
 				form1.m = velocity.Size();
 			}
 
-		} 
+		}
 	}
 }
 
 
 
-function Element(myForm) 
+function Element(myForm)
 {
 
 	this.form = myForm;
@@ -330,18 +342,18 @@ function Element(myForm)
 
 	this.updateElement = function()
 	{
-		 for (var i=0; i<this.behaviors.length; i++) 
-		 {		
+		 for (var i=0; i<this.behaviors.length; i++)
+		 {
 			this.behaviors[i].Apply(this.form);
 		}
 	}
 
 	this.updateElement2 = function(autre)
 	{
-		 for (var i=0; i<this.behaviors.length; i++) 
-		 {		
+		 for (var i=0; i<this.behaviors.length; i++)
+		 {
 			this.behaviors[i].Apply2(this.form, autre.form);
-		}		
+		}
 	}
 }
 
@@ -383,7 +395,7 @@ function Vector(dx, dy)
 
 	this.Size = function()
 	{
-		return Math.sqrt(Math.pow(this.dx ,2) + Math.pow(this.dy ,2));		
+		return Math.sqrt(Math.pow(this.dx ,2) + Math.pow(this.dy ,2));
 	}
 
 	this.Normalize = function()

@@ -59,25 +59,25 @@ $('#left-slides').vegas({
     });
 
 
-/*----- Loading lissajou ----- BASED ON Misha Heesakkers PEN https://codepen.io/MishaHahaha/pen/ONQQNY */ 
+/*----- Loading lissajou ----- BASED ON Misha Heesakkers PEN https://codepen.io/MishaHahaha/pen/ONQQNY */
 window.onload = function () {
   const canvas = document.getElementById("loading-lissa")
   const context = canvas.getContext('2d')
-  
+
   const radius = canvas.width / 6
   const angleStep = Math.PI * 2 / 360
   let theta = 0
-    
+
   //change frequencies for getting various curves
   const frequencyX = 7
   const frequencyY = 7
-  
+
   window.requestAnimationFrame(draw)
-  
+
   function draw () {
     context.setTransform(1, 0, 0, 1, 1, 0);
     context.clearRect(0, 0, canvas.width, canvas.height)
-    
+
     context.setTransform(1, 0, 0, 1, canvas.width / 2, canvas.height / 2);
     context.beginPath();
 
@@ -87,7 +87,7 @@ window.onload = function () {
       if(angle === 0) {
         context.moveTo(x, y)
       } else {
-        context.lineTo(x, y)   
+        context.lineTo(x, y)
       }
     }
 
@@ -101,11 +101,14 @@ gradient.addColorStop("1.0","#000000");
     context.stroke()
     context.miterLimit = .5;
     context.closePath()
-    
+
     theta += 0.03
     window.requestAnimationFrame(draw);
   }
 
+  var highlight = Math.floor(Math.random() * 3.9 + 1.0);
+  var highlightid = '#highlight' + highlight;
+  $(highlightid).css('background','#22FFB3')
 }
 
 /* ----- Wow init ----- */

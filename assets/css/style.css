@@ -23,12 +23,12 @@ All Contents
    License: none (public domain)
 */
 
-."AvenirLTStd-Medium" { 
+."AvenirLTStd-Medium" {
 	font-family: "AvenirLTStd-Medium";
 	font-weight: normal;
 	font-style: normal;
 }
-."AvenirLTStd-Black" { 
+."AvenirLTStd-Black" {
 	font-family: "AvenirLTStd-Black";
 	font-weight: normal;
 	font-style: normal;
@@ -350,6 +350,12 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 
+.mre_highlightable
+{
+	display: inline-block;
+	color: #000000;
+}
+
 /*-----------------------------------------------------
 ---------- Hamburger Menu Styling Starts --------------
 ------------------------------------------------------*/
@@ -358,7 +364,7 @@ h1, h2, h3, h4, h5, h6 {
 
 /* ----- Hamburger Menu Styling and Animation  ------*/
 
-.nav-trigger { 
+.nav-trigger {
   width: 40px;
   height: 40px;
 	z-index: 111;
@@ -724,7 +730,7 @@ background-color: #222222;
     z-index: 99;
     overflow: hidden;
     overflow-y: auto;
-	
+
 }
 
 .intro-personal {
@@ -1694,13 +1700,13 @@ position: relative;
 
   .right-section {
   position: absolute;
-  margin-top: 50px; 
+  margin-top: 50px;
   }
 
   .intro-personal{
     margin-top:0;
   }
-  
+
 }
 
 	@media only screen and (min-width : 320px) and (max-width : 768px) and (orientation: landscape) {
@@ -1760,7 +1766,7 @@ position: relative;
 			height: auto;
 			margin-bottom: 20px;
 			margin-top:20px;
-			
+
 	}
 
 		.project-left img{
@@ -1810,7 +1816,7 @@ position: relative;
 			height: auto;
 			margin-bottom: 40px;
 			margin-top:20px;
-					
+
 		}
 
 		.project-right img{

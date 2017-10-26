@@ -23,13 +23,13 @@ All Contents
    License: none (public domain)
 */
 
-.AvenirLTStd-Medium { 
-	font-family: AvenirLTStd-Medium;
+."AvenirLTStd-Medium" { 
+	font-family: "AvenirLTStd-Medium";
 	font-weight: normal;
 	font-style: normal;
 }
-.AvenirLTStd-Black { 
-	font-family: AvenirLTStd-Black;
+."AvenirLTStd-Black" { 
+	font-family: "AvenirLTStd-Black";
 	font-weight: normal;
 	font-style: normal;
 }
@@ -104,7 +104,7 @@ html * {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: AvenirLTStd-Black;
+  font-family: "AvenirLTStd-Black";
   font-weight: normal;
 }
 
@@ -173,7 +173,7 @@ h1, h2, h3, h4, h5, h6 {
    text-align: center;
 }
 
-#loading-image {
+#loading-lissa {
 	display: inline;
     top: 40%;
     position: relative;
@@ -451,14 +451,6 @@ h1, h2, h3, h4, h5, h6 {
 /* ------ Nav Menu Styling -----*/
 
 #nav-menu {
-  font-family: AvenirLTStd-Black;
-  display: block;
-  line-height: 2em;
-  font-size: 24px;
-  font-weight: normal;
-  text-align: center;
-  padding-bottom: 1em;
-  color: #222;
   position: fixed;
   height: 100%;
   right: 0;
@@ -467,8 +459,8 @@ h1, h2, h3, h4, h5, h6 {
   z-index: 110;
   width: 75%;
   background-color: #F2F2F2;
-	background-size: cover;
-	overflow-y: auto;
+  background-size: cover;
+  overflow-y: auto;
   -webkit-transform: translateZ(0);
   -webkit-backface-visibility: hidden;
   -webkit-transition: -webkit-transform .4s 0s, visibility 0s .6s;
@@ -487,10 +479,9 @@ h1, h2, h3, h4, h5, h6 {
 #nav-menu .navigation {
   margin-top: 150px;
   margin-bottom: 20px;
-  display:block;
 }
 
-/* 
+
 #nav-menu li {
   padding-bottom: 1em;
 }
@@ -498,112 +489,54 @@ h1, h2, h3, h4, h5, h6 {
 #nav-menu li {
   display: block;
   line-height: 2em;
-  font-family: AvenirLTStd-Medium;;
-  font-size: 14px;
+  font-family:"AvenirLTStd-Black";
+  font-size: 21px;
   font-weight: normal;
-  letter-spacing: 4px;
-  text-transform: uppercase;
+  letter-spacing: 0px;
   text-align: center;
+  line-height: 2;
   padding-bottom: 1em;
   color: #222;
-	-webkit-transform: translateX(50px);
-	-moz-transform: translateX(50px);
-	transform: translateX(50px);
-	-webkit-transition: .8s 0s;
+  -webkit-transform: translateX(50px);
+  -moz-transform: translateX(50px);
+  transform: translateX(50px);
+  -webkit-transition: .8s 0s;
   -moz-transition: .8s 0s;
     transition: .8s 0s;
 }
-*/
-.navigation a {
+
+#nav-menu a {
+  position: relative;
   color: #111;
-	text-decoration: none;
-	display:block;
-	padding: 20px 0;
-}
-
-.navigation .menu__item-name {
-	padding: 0 1em;
-	transition: color 0.5s;
-	transition-timing-function: cubic-bezier(0.2,1,0.3,1);
-}
-
-.navigation .menu__item-name::before {
-	content: '';
-	position: absolute;
-	z-index: -1;
-	width: 50%;
-	left:25%;
-  margin-top: 8px;
-	height: 20px;
-	transform: scale3d(0,1,1);
-	transform-origin: 0% 50%;
-	transition: transform 0.5s;
-	transition-timing-function: cubic-bezier(0.2,1,0.3,1);
-}
-
-.navigation .menu__item:nth-child(odd) .menu__item-name::before {
-	background: #22FFB3;
-}
-
-.navigation .menu__item:nth-child(even) .menu__item-name::before {
-	background: #22FFB3;
-}
-
-/* Hover */
-
-.navigation .menu__item:nth-child(odd):hover,
-.navigation .menu__item:nth-child(odd):focus {
-	color: #000;
-}
-
-.navigation .menu__item:nth-child(even):hover,
-.navigation .menu__item:nth-child(even):focus {
-	color: #000;
-}
-
-.navigation .menu__item:hover .menu__item-name::before,
-.navigation .menu__item:focus .menu__item-name::before {
-	transform: scale3d(1,1,1);
-}
-
-@media screen and (max-width: 50em) {
-	.navigation .menu__item {
-		margin: 0 0 0em;
-	}
-	.navigation .menu__item-label {
-		display: block;
-		margin: 0.5em 0 0 0em;
-	}
+  text-decoration: none;
 }
 
 
-
-/* ----- 
 #nav-menu a:before {
   content: "";
   position: absolute;
   width: 100%;
-  height: 2px;
-  top:10px;
-  margin: 0 auto; 
+  height: 5px;
+  bottom:10px;
+  left: 0;
   background-color: #22FFB3;
   visibility: hidden;
-  -webkit-transform: scaleX(1);
-  transform: scaleX(1);
+  -webkit-transform: scaleX(0);
+  transform: scaleX(0);
   -webkit-transition: all 0.2s ease-in-out 0s;
   transition: all 0.2s ease-in-out 0s;
 }
 
 #nav-menu li:hover a::before {
   visibility: visible;
-  -webkit-transform: scaleX(2);
-  transform: scaleX(2);
+  -webkit-transform: scaleX(1);
+  transform: scaleX(1);
 }
 
 
 .no-touch #nav-menu a:hover {
   color: #000;
-	text-decoration: none;
+  text-decoration: none;
 }
 
 
@@ -662,35 +595,36 @@ h1, h2, h3, h4, h5, h6 {
 
 
 #nav-menu.is-active {
-	opacity: 1;
-	visibility: visible;
-	-webkit-transition: opacity .4s 0s, visibility 0s 0s;
+  opacity: 1;
+  visibility: visible;
+  -webkit-transition: opacity .4s 0s, visibility 0s 0s;
   -moz-transition: opacity .4s 0s, visibility 0s 0s;
   transition: opacity .4s 0s, visibility 0s 0s;
 }
 
 
 #nav-menu.is-active li {
-	-webkit-transform: translateX(0px);
-	-moz-transform: translateX(0px);
-	transform: translateX(0px);
-	-webkit-transition: .8s 0s;
+  -webkit-transform: translateX(0px);
+  -moz-transform: translateX(0px);
+  transform: translateX(0px);
+  -webkit-transition: .8s 0s;
   -moz-transition: .8s 0s;
     transition: .8s 0s;
 }
 
 #nav-menu .copyright-text {
-  font-family: AvenirLTStd-Medium;;
+  font-family: Work Sans;
   font-size: 12px;
-  font-weight: normal;
-	text-align: center;
+  font-weight: 200;
+  text-align: center;
+  letter-spacing: 1px;
   padding: 20px 20px;
 }
 
 .nav-social ul {
   padding: 0.5em;
   list-style-type: none;
-	text-align: center;
+  text-align: center;
 }
 
 .nav-social li {
@@ -700,7 +634,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .nav-social i, .nav-social a {
   font-size: 21px;
-  color: #22FFB3;
+  color: #072DEF;
 }
 
 .nav-social a:before {
@@ -709,24 +643,25 @@ h1, h2, h3, h4, h5, h6 {
 
 @media only screen and (min-width: 768px) {
 
-	#nav-menu {
-	  width: 50%;
-	}
+  #nav-menu {
+    width: 50%;
+  }
 
   #nav-menu .navigation {
     margin-top: 150px;
   }
 
-	#nav-menu li {
-	  font-size: 14px;
-	  text-align: center;
-	  padding-left: 0em;
-	}
+  #nav-menu li {
+    font-size: 24px;
+    text-align: center;
+    padding-left: 0em;
+  }
 
   .nav-social ul {
     padding: 0.4em;
   }
 }
+
 
 
 /* --------------------------------------------------
@@ -801,14 +736,14 @@ background-color: #222222;
 }
 
 .intro-personal .intro-text h1 {
-	font-family: AvenirLTStd-Black;
+	font-family: "AvenirLTStd-Black";
 	font-size: 36px;
 	font-weight: normal;
 	line-height: 1.5;
 }
 
 .btn-contact {
-	font-family:AvenirLTStd-Medium;;
+	font-family:"AvenirLTStd-Medium";;
 	font-size: 18px;
 	font-weight: normal;
 	color: #CBC154;
@@ -845,7 +780,7 @@ background-color: #222222;
 
 .split-about .split-about-details h4 {
 	display: inline;
-	font-family: AvenirLTStd-Medium;;
+	font-family: "AvenirLTStd-Medium";;
 	font-size: 14px;
 	font-weight: normal;
 	float: left;
@@ -857,7 +792,7 @@ background-color: #222222;
 }
 
 .split-about .split-about-details h1 {
-	font-family: AvenirLTStd-Black;
+	font-family: "AvenirLTStd-Black";
 	font-size: 36px;
 	font-weight: normal;
 	text-align: left;
@@ -869,7 +804,7 @@ background-color: #222222;
 
 
 .split-about .split-about-details h2 {
-	font-family:  AvenirLTStd-Medium;
+	font-family:  "AvenirLTStd-Medium";
 	font-size: 24px;
 	font-weight: normal;
 	text-align: left;
@@ -884,14 +819,14 @@ background-color: #222222;
 }
 
 .split-about .split-about-details span {
-	font-family:  AvenirLTStd-Medium;
+	font-family:  "AvenirLTStd-Medium";
 	font-size: 22px;
 	text-align: left;
 	line-height: 1.2;
 }
 
 .split-about .split-about-details p {
-	font-family:  AvenirLTStd-Medium;
+	font-family:  "AvenirLTStd-Medium";
 	font-size: 16px;
 	font-weight: normal;
 	text-align: left;
@@ -906,7 +841,7 @@ background-color: #222222;
 
 .split-about-experience h2 {
 	display: inline;
-	font-family:  AvenirLTStd-Medium;
+	font-family:  "AvenirLTStd-Medium";
 	font-size: 14px;
 	font-weight: normal;
 	float: left;
@@ -926,7 +861,7 @@ background-color: #222222;
 }
 
 .split-about-experience h3 {
-  font-family:  AvenirLTStd-Medium;
+  font-family:  "AvenirLTStd-Medium";
   font-size: 16px;
   font-weight: normal;
   color: #111111;
@@ -934,7 +869,7 @@ background-color: #222222;
 }
 
 .split-about-experience p {
-  font-family:  AvenirLTStd-Medium;
+  font-family:  "AvenirLTStd-Medium";
   font-size: 14px !important;
   font-weight: normal;
   color: #888DA1;
@@ -943,7 +878,7 @@ background-color: #222222;
 }
 
 .split-about-experience h6 {
-  font-family:  AvenirLTStd-Medium;
+  font-family:  "AvenirLTStd-Medium";
   font-size: 14px;
   font-weight: normal;
   color: #072DEF;
@@ -970,7 +905,7 @@ background-color: #222222;
 }
 
 .portfolio-split .portfolio-intro span {
-	font-family:  AvenirLTStd-Medium;
+	font-family:  "AvenirLTStd-Medium";
 	font-size: 14px;
 	text-transform: uppercase;
 	font-weight: normal;
@@ -1014,7 +949,7 @@ background-color: #222222;
 }
 
 .overlay-items h5 {
-	font-family:  AvenirLTStd-Medium;
+	font-family:  "AvenirLTStd-Medium";
 	display: block;
 	color: #FFF;
 	font-size: 16px;
@@ -1036,7 +971,7 @@ background-color: #222222;
 	margin-top: 0em;
 	opacity: 0;
 	font-size: 12px;
-	font-family:  AvenirLTStd-Medium;
+	font-family:  "AvenirLTStd-Medium";
   font-weight: normal;
 	color: #111111;
 	padding: 5px 5px;
@@ -1075,7 +1010,7 @@ background-color: #222222;
 }
 
 .project {
-	font-family: AvenirLTStd-Medium ;
+	font-family: "AvenirLTStd-Medium" ;
 }
 
 
@@ -1126,7 +1061,6 @@ background-color: #222222;
 
 .project-left .project-caption .project-code:hover {
   color: #22FFB3;
-  text-decoration: line-through;
 }
 
 
@@ -1140,7 +1074,6 @@ background-color: #222222;
 
 .project-left .project-caption .project-print:hover {
   color: #22FFB3;
-  text-decoration: line-through;
 }
 
 
@@ -1182,7 +1115,6 @@ background-color: #222222;
 
 .project-right .project-caption .project-code:hover {
   color: #22FFB3;
-  text-decoration: line-through;
 }
 
 
@@ -1197,7 +1129,6 @@ background-color: #222222;
 
 .project-right .project-caption .project-print:hover {
   color: #22FFB3;
-  text-decoration: line-through;
 }
 
 .project-right img{
@@ -1238,7 +1169,7 @@ background-color: #222222;
 
 .primal-portfolio .categories ul li a {
    display: inline;
-   font-family: AvenirLTStd-Medium;
+   font-family: "AvenirLTStd-Medium";
    font-weight: normal;
    font-size: 14px;
    line-height: 2.5;
@@ -1289,7 +1220,7 @@ background-color: #222222;
  margin-top: 1em;
  opacity: 0;
  font-size: 12px;
- font-family: AvenirLTStd-Medium;
+ font-family: "AvenirLTStd-Medium";
  color: #111111;
  padding: 5px 5px;
  background: #FFFFFF;
@@ -1345,7 +1276,7 @@ background-color: #222222;
 
 .portfolio-single .project-details h4 {
 	display: inline;
-	font-family: AvenirLTStd-Medium;
+	font-family: "AvenirLTStd-Medium";
 	font-size: 14px;
 	font-weight: normal;
 	float: left;
@@ -1357,7 +1288,7 @@ background-color: #222222;
 }
 
 .portfolio-single .project-details h1 {
-	font-family: AvenirLTStd-Medium;
+	font-family: "AvenirLTStd-Medium";
 	font-size: 34px;
 	font-weight: normal;
 	text-align: left;
@@ -1366,7 +1297,7 @@ background-color: #222222;
 }
 
 .portfolio-single .project-details p {
-	font-family: AvenirLTStd-Medium;
+	font-family: "AvenirLTStd-Medium";
 	font-size: 16px;
 	font-weight: normal;
 	text-align: left;
@@ -1392,7 +1323,7 @@ background-color: #222222;
 }
 
 .project-details span {
-	font-family: AvenirLTStd-Medium;
+	font-family: "AvenirLTStd-Medium";
 	font-size: 14px;
 	font-weight: normal;
 	line-height: 2;
@@ -1403,19 +1334,19 @@ background-color: #222222;
 }
 
 .portfolio-single .project-sub-details p {
-	font-family: AvenirLTStd-Medium;
+	font-family: "AvenirLTStd-Medium";
 	font-size: 16px;
 	font-weight: normal;
 	text-align: left;
 }
 
 .portfolio-single .project-sub-details a {
-	font-family: AvenirLTStd-Medium;
+	font-family: "AvenirLTStd-Medium";
 	color: #CBC154;
 }
 
 .portfolio-single .project-sub-details a:hover {
-	font-family: AvenirLTStd-Medium;
+	font-family: "AvenirLTStd-Medium";
 	color: #22FFB3;
 	text-decoration: none;
 }
@@ -1442,11 +1373,11 @@ background-color: #222222;
 }
 
 .split-contact .split-contact-intro {
-	padding: 40px;
+	padding-left: 5%;
 }
 
 .split-contact .split-contact-intro h4 {
-	font-family: AvenirLTStd-Medium;
+	font-family: "AvenirLTStd-Medium";
 	font-size: 14px;
 	font-weight: normal;
 	line-height: 2;
@@ -1458,12 +1389,12 @@ background-color: #222222;
 }
 
 .split-contact-intro h1 {
-	font-family: AvenirLTStd-Black;
+	font-family: "AvenirLTStd-Black";
 	font-size: 36px;
 	font-weight: normal;
 	text-align: left;
 	line-height: 1.2;
-	margin: 20px 0 20px 0;
+	margin: 20px 0 0 0;
 }
 
 .split-form {
@@ -1474,19 +1405,19 @@ background-color: #222222;
 /* ----- Form Styling Starts ----- */
 
 label {
-  font-family: AvenirLTStd-Medium;
+  font-family: "AvenirLTStd-Medium";
   font-size: 15px;
   font-weight: normal;
   color: #111111;
 }
 
 .controls input {
-  font-family: AvenirLTStd-Medium;
+  font-family: "AvenirLTStd-Medium";
   color: #888DA1;
 }
 
 .controls textarea {
-  font-family: AvenirLTStd-Medium;
+  font-family: "AvenirLTStd-Medium";
   color: #888DA1;
 }
 
@@ -1512,32 +1443,32 @@ label {
 }
 
 .form-control::-webkit-input-placeholder {
-  font-family: AvenirLTStd-Medium;
+  font-family: "AvenirLTStd-Medium";
   font-size: 12px;
   color: #888DA1;
 }
 
 .form-control:-moz-placeholder {
-  font-family: AvenirLTStd-Medium;
+  font-family: "AvenirLTStd-Medium";
   font-size: 12px;
   color: #888DA1;
 }
 
 
 .form-control::-moz-placeholder {
-  font-family: AvenirLTStd-Medium;
+  font-family: "AvenirLTStd-Medium";
   font-size: 12px;
   color: #888DA1;
 }
 
 .form-control:-ms-input-placeholder {
-  font-family: AvenirLTStd-Medium;
+  font-family: "AvenirLTStd-Medium";
   font-size: 12px;
   color: #888DA1;
 }
 
 .text-muted {
-  font-family: AvenirLTStd-Medium;
+  font-family: "AvenirLTStd-Medium";
   font-size: 14px !important;
   font-weight: normal;
   color: #222;
@@ -1548,7 +1479,7 @@ label {
 }
 
 .btn-send {
-  font-family: AvenirLTStd-Black !important;
+  font-family: "AvenirLTStd-Black" !important;
   font-weight: normal;
   font-size: 24px;
   margin-bottom: 20px;
@@ -1622,24 +1553,44 @@ label {
 }
 
 .footer-personal a {
-	display: inline;
-	font-family: AvenirLTStd-Medium;;
-	font-size: 16px;
-	font-weight: normal;
-	color: #111111;
-	text-decoration: none;
+  font-family: "AvenirLTStd-Medium", sans-serif;
+  font-size: 16px;
+position: relative;
+  color: #111;
+  text-decoration: none;
 }
 
-.footer-personal a:hover, .footer-personal a:focus {
-  color: #22FFB3;
-  text-decoration: line-through;
-}
+
 
 .footer-credits {
-	font-family: AvenirLTStd-Medium;
+	font-family: "AvenirLTStd-Medium";
 	font-size: 14px;
 	margin-top: 20px;
 }
+
+
+.footer-personal a:before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 4px;
+  bottom:7px;
+  left: 0;
+  background-color: #22FFB3;
+  visibility: hidden;
+  -webkit-transform: scaleX(0);
+  transform: scaleX(0);
+  -webkit-transition: all 0.2s ease-in-out 0s;
+  transition: all 0.2s ease-in-out 0s;
+}
+
+.footer-personal li:hover a::before {
+  visibility: visible;
+  -webkit-transform: scaleX(1);
+  transform: scaleX(1);
+}
+
+
 
 /* ----- Footer Section Styling Ends ----- */
 
@@ -1680,6 +1631,7 @@ label {
 
 		.portfolio-split .portfolio-intro h1 {
 			font-size: 24px;
+      line-height: 1.3;
 		}
 
 
@@ -1687,9 +1639,6 @@ label {
 			padding: 1em;
 		}
 
-		.portfolio-single .project-details {
-			padding: 15px;
-		}
 
 			.primal-portfolio span {
 					margin-bottom: 0;
@@ -1719,6 +1668,9 @@ label {
 			font-size: 14px;
 			padding: 10px;
 		}
+    .split-about .split-about-details p {
+      width:100%;
+    }
 	}
 
  @media only screen and (min-width : 768px) and (max-width : 1024px) and (orientation : landscape) {
@@ -1771,7 +1723,10 @@ label {
   }
 
 	@media only screen and (max-width: 420px) {
+.footer-personal {
+  visibility: hidden;
 
+}
 
   .left-section {
     visibility: hidden;
@@ -1785,7 +1740,7 @@ label {
 		.intro-personal .intro-text h1 {
 			font-size: 34px;
 			font-weight: normal;
-			line-height: 1.1;
+			line-height: 1.3;
 		}
 		.portfolio-split {
 			padding-top:10px;
@@ -1794,7 +1749,7 @@ label {
 
 		.portfolio-split .portfolio-intro h1 {
 		font-size: 34px;
-		line-height: 1.1;
+		line-height: 1.3;
 		margin-top:10px;
 		}
 
@@ -1917,6 +1872,18 @@ label {
 				margin-bottom: 20px;
 		}
 
+    .split-contact {
+      padding-top:25px;
+    }
+
+    .split-about {
+      padding-top:25px;
+    }
+
+
+    .split-about .split-about-details h1 {
+      margin :0;
+    }
 
 		.footer-personal {
 	position: fixed;
